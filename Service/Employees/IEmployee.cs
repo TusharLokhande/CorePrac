@@ -7,6 +7,14 @@ namespace CorePrac.Service.Employees
     {
         public IEnumerable<Employee> GetUsers();
         public Employee GetById(int Id);
-      
+
+        public dynamic InsertUpdate(Employee emp);
+
+        public dynamic GetEmployeeMaster();
+
+        public dynamic GetDepartmentList();
+
+        public dynamic GetReportManagerList();
     }
+        
 }

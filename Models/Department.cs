@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CorePrac.Models
 {
-    public partial class Department
+    public partial class Department : BaseEntity
     {
         public Department()
         {

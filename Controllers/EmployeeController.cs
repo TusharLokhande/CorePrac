@@ -17,18 +17,57 @@ namespace CorePrac.Controllers
             this._Employee = employee;
         }
 
-        [HttpGet]
+        [HttpPost]
         public IEnumerable<Employee> Get()
         {
             return _Employee.GetUsers();
         }
 
         
-        [HttpGet]
-       
+        [HttpPost]
         public Employee GetEmployee(int id)
         {
             return _Employee.GetById(id);
+        }
+
+        [HttpPost]
+        public JsonResponseModel InsertUpdateEmployee(Employee value)
+        {
+            JsonResponseModel apiResponse = new JsonResponseModel();
+            bool result = _Employee.InsertUpdate(value);
+
+            if (result)
+            {
+                apiResponse.Status = ApiStatus.OK;
+                apiResponse.Data = "Inserted";
+                apiResponse.Message = "Ok";
+            }
+            else
+            {
+                apiResponse.Status = ApiStatus.Error;
+                apiResponse.Data = null;
+                apiResponse.Message = "Record already Exists!";
+            }
+            return apiResponse;
+        }
+
+        [HttpPost]
+        public object GetAllEmployee()
+        {
+            return _Employee.GetEmployeeMaster();
+        }
+
+        [HttpPost]
+        public object GetDepartmentList()
+        {
+            return _Employee.GetDepartmentList();
+        }
+
+
+        [HttpPost]
+        public object GetReportingManagerList()
+        {
+            return _Employee.GetReportManagerList();
         }
     }
 }

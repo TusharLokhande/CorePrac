@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CorePrac.Models
 {
-    public partial class ReportingManager
+    public partial class ReportingManager : BaseEntity
     {
         public ReportingManager()
         {
